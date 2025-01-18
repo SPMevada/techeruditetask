@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Customer Register') }}</div>
+                <div class="card-header">{{ __('Admin Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register.customer.submit') }}">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -66,7 +66,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <input type="hidden" name="role" value="customer">
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

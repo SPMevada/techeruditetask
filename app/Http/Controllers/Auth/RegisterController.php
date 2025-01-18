@@ -65,32 +65,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if(!empty($data['role']) && $data['role'] == 'customer') {
+            $role = 'customer';
+        } else {
+            $role = 'admin';
+        }
+
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role' => 'admin'
+            'role' => $role
         ]);
-
-        // return redirect()->route('home');
     }
 
     public function registerCustomer() {
-        return view('auth.admin_register');
-    }
-
-    public function registerCustomerSubmit(Request $request) {
-        $this->validator($request->all())->validate();
-
-        User::create([
-            'first_name' => $request['first_name'],
-            'last_name' => $request['last_name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            'role' => 'customer'
-        ]);
-
-        return redirect()->route('login');
+        return view('auth.customer_register');
     }
 }

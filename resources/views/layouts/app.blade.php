@@ -49,9 +49,9 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register.customer'))
+                            @if (Route::has('cutomer.register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register.customer') }}">{{ __('Customer Register') }}</a>
+                                    <a class="nav-link" href="{{ route('cutomer.register') }}">{{ __('Customer Register') }}</a>
                                 </li>
                             @endif
                         @else
